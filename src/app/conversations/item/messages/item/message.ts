@@ -17,5 +17,11 @@ export class MessageCmp {
   constructor(route: ActivatedRoute) {
     this.messages = (<any>route.data.pluck('messages')).mergeAll();
     this.message = route.data.pluck('message');
+
+    route.data.subscribe(
+      data => {
+        console.log(data);
+      }
+    );
   }
 }
